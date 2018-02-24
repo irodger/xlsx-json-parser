@@ -11,19 +11,15 @@ xlsx to JSON parser. i18next format. Relies on node-xlsx.
 *Attention!* At this version parser rewrite exist files.
 
 ### Install
+Sorry but no npm yet
 ```
-npm i i18next-xlsx-to-json
+git clone https://github.com/irodger/i18next-xlsx-to-json.git
 ```
 
 ### Usage
 #### In command line
 ```
 node i18next-xlsx-to-json
-```
-
-#### Or using npm
-```
-npm run i18next-xlsx-to-json
 ```
 
 #### Using with arguments
