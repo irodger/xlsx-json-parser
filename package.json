@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Roman iRodger Dvoryanov",
   "license": "MIT",
+  "scripts": {
+    "i18next-xlsx-to-json": "node index"
+  },
   "dependencies": {
     "node-xlsx": "^0.11.2"
   },
