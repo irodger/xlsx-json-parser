@@ -2,11 +2,11 @@
   "name": "i18next-xlsx-to-json",
   "version": "0.1.0",
   "description": "Parse xls/xlsx to json. i18next format",
-  "main": "index.js",
+  "main": "i18next-xlsx-to-json.js",
   "author": "Roman iRodger Dvoryanov",
   "license": "MIT",
   "scripts": {
-    "i18next-xlsx-to-json": "node index"
+    "i18next-xlsx-to-json": "node i18next-xlsx-to-json"
   },
   "dependencies": {
     "node-xlsx": "^0.11.2"
