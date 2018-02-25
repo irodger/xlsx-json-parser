@@ -8,7 +8,8 @@
 
 ## Description and nuances
 xlsx to JSON parser. Also support i18next format. Relies on node-xlsx.   
-*Attention!* At this version parser rewrite exist files.
+*Attention!* At this version parser rewrite exist files.  
+I hope append to exist files will be in next releases.
 
 ### Install
 
@@ -22,11 +23,24 @@ npm i xlsx-json-parser
 node xlsx-json-parser
 ```
 
-#### Using with arguments
-```javascript
-node xlsx-json-parser listNumber xlsxDir jsonDir
+#### You can add this line to your `package.json` in scripts section
+```json
+"scripts": {
+    "xlsx-parse": "npm xlsx-json-parser"
+  }
 ```
-You can change default arguments in `config.js`
+And when you need to parse xlsx type in your console `npm xlsx-parse`
+
+#### Using with arguments
+```javascript static
+node xlsx-json-parser --ln=listNumber --xlsx=xlsxDir --json=jsonDir --wfn
+```
+##### Where
+`--ln` - List number  
+`--xlsx` - Path to xlxs
+`--json` - Path to json  
+`--wfn` - With file names for json files   
+You can change default arguments in `xlsx-json-parser.config.js`
 
 #### Config file
 Config file `xlsx-json-parser.config.js` looks like
@@ -35,6 +49,7 @@ const config = {
   xlsxDir: './xlsx/',
   jsonDir: './json/',
   listNumber: 1,
+  withFilenames: false,
   fileTemplate(lang, array) {
     return `{\n "${lang}": {\n    "translations": ${JSON.stringify(array)}\n  }\n}`
   },
@@ -48,6 +63,7 @@ You can override it by put `xlsx-json-parser.config.js` to your directory
 `xlsxDir` - default folder with xlsx files  
 `jsonDir` - default folder for json files  
 `listNumber` - Number of needed list in Excel file  
+`withFilenames` - Add to json files name of xlsx files if false, json files will be overwritten
 `fileTemplate` - method for set how json might looks, where `lang` - is current language for file, `array` - items for this langugae   
 
 ### i18next Format
