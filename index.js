@@ -1,17 +1,14 @@
 const xlsx = require('node-xlsx');
 const fs = require('fs');
-
-const DEFAULT_XLSX_DIRECTORY = './xlsx/';
-const DEFAULT_JSON_DIRECTORY = './json/';
-const DEFAULT_LIST_NUMBER  = 1;
+const config = require('./config');
 
 /**
  * Get arguments from command line
  * >node index listNumber xlsxDir jsonDir
  */
-const listNumber = typeof process.argv[2] !== 'undefined' ? parseInt(process.argv[2]) : DEFAULT_LIST_NUMBER;
-const xlsxDir = typeof process.argv[3] !== 'undefined' ? process.argv[3] : DEFAULT_XLSX_DIRECTORY;
-const jsonDir = typeof process.argv[4] !== 'undefined' ? process.argv[4] : DEFAULT_JSON_DIRECTORY;
+const listNumber = typeof process.argv[2] !== 'undefined' ? parseInt(process.argv[2]) : config.listNumber;
+const xlsxDir = typeof process.argv[3] !== 'undefined' ? process.argv[3] : config.xlsxDir;
+const jsonDir = typeof process.argv[4] !== 'undefined' ? process.argv[4] : config.jsonDir;
 
 /**
  * Close app when folder with xlsx not found
@@ -64,7 +61,7 @@ fs.readdir(xlsxDir, (err, files) => {
          * Write files
          */
         for (let i = 0; i < langs.length; i++) {
-          const file = `{\n "${langs[i]}": {\n    "translations": ${JSON.stringify(tt[`${langs[i]}`])}\n  }\n}`;
+          const file = config.fileTemplate(langs[i], tt[`${langs[i]}`]);
 
           fs.writeFile(`${jsonDir}/${langs[i]}_${filename}.json`, file, function(err) {
             if(err) {

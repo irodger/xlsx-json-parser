@@ -1,8 +1,8 @@
 {
-  "name": "i18next-xlsx-to-json",
+  "name": "xlsx-to-json",
   "version": "0.1.0",
   "description": "Parse xls/xlsx to json. i18next format",
-  "main": "i18next-xlsx-to-json.js",
+  "main": "index.js",
   "author": "Roman iRodger Dvoryanov",
   "license": "MIT",
   "scripts": {
