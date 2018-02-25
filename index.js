@@ -1,7 +1,7 @@
 const xlsx = require('node-xlsx');
 const fs = require('fs');
-const config = require('./xlsx-json-parser.config.js');
-
+const path = require('path');
+const config = !fs.existsSync(path.resolve(__dirname, './../../xlsx-json-parser.config.js')) ? require('./xlsx-json-parser.config.js') : require('../../xlsx-json-parser.config.js');
 let listNumber = config.listNumber;
 let withFilenames = config.withFilenames;
 let xlsxDir = config.xlsxDir;
