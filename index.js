@@ -13,8 +13,8 @@ let jsonDir = config.jsonDir;
 process.argv.forEach(function (val) {
   listNumber = val.includes('--ln=') ? parseInt(val.split('=')[1]) : config.listNumber;
   withFilenames = val.includes('--wfn') ? val : config.withFilenames;
-  xlsxDir = val.includes('--xlsx=') ? parseInt(val.split('=')[1]) : config.xlsxDir;
-  jsonDir = val.includes('--json=') ? parseInt(val.split('=')[1]) : config.jsonDir;
+  xlsxDir = val.includes('--xlsx=') ? val.split('=')[1] : config.xlsxDir;
+  jsonDir = val.includes('--json=') ? val.split('=')[1] : config.jsonDir;
 });
 /**
  * Close app when folder with xlsx not found

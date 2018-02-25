@@ -26,7 +26,7 @@ node xlsx-json-parser
 #### You can add this line to your `package.json` in scripts section
 ```json
 "scripts": {
-    "xlsx-parse": "npm xlsx-json-parser"
+    "xlsx-parse": "node node_modules/xlsx-json-parser"
   }
 ```
 And when you need to parse xlsx type in your console `npm xlsx-parse`
@@ -46,8 +46,8 @@ You can change default arguments in `xlsx-json-parser.config.js`
 Config file `xlsx-json-parser.config.js` looks like
 ```javascript
 const config = {
-  xlsxDir: './xlsx/',
-  jsonDir: './json/',
+  xlsxDir: 'xlsx/',
+  jsonDir: 'json/',
   listNumber: 1,
   withFilenames: false,
   fileTemplate(lang, array) {
