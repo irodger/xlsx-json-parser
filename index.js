@@ -1,6 +1,6 @@
 const xlsx = require('node-xlsx');
 const fs = require('fs');
-const config = require('./config');
+const config = require('xlsx-json-parser.config');
 
 /**
  * Get arguments from command line

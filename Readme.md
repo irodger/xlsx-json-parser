@@ -29,7 +29,7 @@ node xlsx-json-parser listNumber xlsxDir jsonDir
 You can change default arguments in `config.js`
 
 #### Config file
-Config file looks like
+Config file `xlsx-json-parser.config.js` looks like
 ```javascript
 const config = {
   xlsxDir: './xlsx/',
@@ -42,6 +42,7 @@ const config = {
 
 module.exports = config;
 ```
+You can override it by put `xlsx-json-parser.config.js` to your directory
 
 ##### Where
 `xlsxDir` - default folder with xlsx files  
@@ -61,7 +62,7 @@ By default keys for all langs parser get value from first lang
   }
 }
 ```
-You can change format in `config.js`
+You can change format in `xlsx-json-parser.config.js`
 
 ### Files
 Parser looks into `xlsxDir` and parse all xls/xlsx files.  
