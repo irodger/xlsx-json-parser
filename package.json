@@ -1,5 +1,5 @@
 {
-  "name": "xlsx-to-json",
+  "name": "xlsx-json-parser",
   "version": "0.1.0",
   "description": "Parse xls/xlsx to json. i18next format",
   "main": "index.js",

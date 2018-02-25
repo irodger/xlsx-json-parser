@@ -1,10 +1,10 @@
-# xlsx-to-json
-[![Build Status](https://travis-ci.org/irodger/i18next-xlsx-to-json.svg?branch=master)](https://travis-ci.org/irodger/i18next-xlsx-to-json)
-[![NPM version](https://badge.fury.io/js/i18next-xlsx-to-json.svg)](http://badge.fury.io/js/i18next-xlsx-to-json)
-[![Downloads](https://img.shields.io/npm/dm/i18next-xlsx-to-json.svg)](http://npm-stat.com/charts.html?package=i18next-xlsx-to-json)
-[![License](https://img.shields.io/github/license/irodger/i18next-xlsx-to-json.svg?style=flat-square)](https://github.com/irodger/i18next-xlsx-to-json/blob/master/LICENSE)
-[![Issues](https://img.shields.io/github/issues/irodger/i18next-xlsx-to-json.svg?style=flat-square)](https://github.com/irodger/i18next-xlsx-to-json/issues)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/irodger/i18next-xlsx-to-json/pulls)
+# xlsx-json-parser
+[![Build Status](https://travis-ci.org/irodger/xlsx-json-parser.svg?branch=master)](https://travis-ci.org/irodger/xlsx-json-parser)
+[![NPM version](https://badge.fury.io/js/xlsx-json-parser.svg)](http://badge.fury.io/js/xlsx-json-parser)
+[![Downloads](https://img.shields.io/npm/dm/xlsx-json-parser.svg)](http://npm-stat.com/charts.html?package=xlsx-json-parser)
+[![License](https://img.shields.io/github/license/irodger/xlsx-json-parser.svg?style=flat-square)](https://github.com/irodger/xlsx-json-parser/blob/master/LICENSE)
+[![Issues](https://img.shields.io/github/issues/irodger/xlsx-json-parser.svg?style=flat-square)](https://github.com/irodger/xlsx-json-parser/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/irodger/xlsx-json-parser/pulls)
 
 ## Description and nuances
 xlsx to JSON parser. Also support i18next format. Relies on node-xlsx.   
@@ -13,18 +13,18 @@ xlsx to JSON parser. Also support i18next format. Relies on node-xlsx.
 ### Install
 Sorry but no npm yet
 ```
-git clone https://github.com/irodger/i18next-xlsx-to-json.git
+git clone https://github.com/irodger/xlsx-json-parser.git
 ```
 
 ### Usage
 #### In command line
 ```
-node i18next-xlsx-to-json
+node xlsx-json-parser
 ```
 
 #### Using with arguments
 ```
-node i18next-xlsx-to-json listNumber xlsxDir jsonDir
+node xlsx-json-parser listNumber xlsxDir jsonDir
 ```
 You can change default arguments in `config.js`
 
