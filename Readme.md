@@ -21,7 +21,7 @@ Then add folder `xlsx` (you can change it in xlsx-json-parser.config.js) in your
 ### Usage
 #### In command line
 ```javascript
-node xlsx-json-parser
+node node_modules/xlsx-json-parser
 ```
 
 #### You can add this line to your `package.json` in scripts section
@@ -30,11 +30,11 @@ node xlsx-json-parser
     "xlsx-parse": "node node_modules/xlsx-json-parser"
   }
 ```
-And when you need to parse xlsx type in your console `npm xlsx-parse`
+And when you need to parse xlsx type in your console `npm run xlsx-parse`
 
 #### Using with arguments
 ```javascript static
-node xlsx-json-parser --ln=listNumber --xlsx=xlsxDir --json=jsonDir --wfn
+node node_modules/xlsx-json-parser --ln=listNumber --xlsx=xlsxDir --json=jsonDir --wfn
 ```
 ##### Where
 `--ln` - List number  
@@ -58,7 +58,7 @@ const config = {
 
 module.exports = config;
 ```
-You can override it by put `xlsx-json-parser.config.js` to your directory
+You can overwrite it by put `xlsx-json-parser.config.js` to your directory
 
 ##### Where
 `xlsxDir` - default folder with xlsx files  
