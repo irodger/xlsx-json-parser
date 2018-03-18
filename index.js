@@ -1,11 +1,15 @@
 const xlsx = require('node-xlsx');
 const fs = require('fs');
 const path = require('path');
-const config = !fs.existsSync(path.resolve(__dirname, './../../xlsx-json-parser.config.js')) ? require('./xlsx-json-parser.config.js') : require('../../xlsx-json-parser.config.js');
+const config = fs.existsSync(path.resolve(__dirname, './../../xlsx-json-parser.config.js')) ? require('../../xlsx-json-parser.config.js') : require('./xlsx-json-parser.config.js');
 let listNumber = config.listNumber;
 let withFilenames = config.withFilenames;
 let xlsxDir = config.xlsxDir;
 let jsonDir = config.jsonDir;
+
+const getValuesFromFile = require('./utils/getValuesFromFile');
+const getValuesFromArray = require('./utils/getValuesFromArray');
+
 /**
  * Get arguments from command line
  * >node index listNumber xlsxDir jsonDir --wfn
@@ -16,6 +20,7 @@ process.argv.forEach(function (val) {
   xlsxDir = val.includes('--xlsx=') ? val.split('=')[1] : config.xlsxDir;
   jsonDir = val.includes('--json=') ? val.split('=')[1] : config.jsonDir;
 });
+
 /**
  * Close app when folder with xlsx not found
  */
@@ -45,35 +50,32 @@ fs.readdir(xlsxDir, (err, files) => {
 
       if (typeof currentList !== 'undefined' && currentList.data.length > 0) {
         const langs = currentList.data[0];
-
-        function getValues (array) {
-          const langsCount = array[0].length;
-          const temp = {};
-
-          for (let i = 0; i < langsCount; i++) {
-            const tempInside = {};
-
-            for (let k = 1; k < array.length; k++) {
-              tempInside[`${array[k][0].replace(/ /g, '_').toLowerCase()}`] = array[k][i];
-            }
-            temp[array[0][i]] = tempInside;
-          }
-          return temp;
-        }
-
-        const tt = getValues(currentList.data);
+        const tt = getValuesFromArray(currentList.data);
 
         /**
          * Write files
          */
         for (let i = 0; i < langs.length; i++) {
-          const file = config.fileTemplate(langs[i], tt[`${langs[i]}`]);
+          let valuesArr = tt[`${langs[i]}`];
+          const file = `${jsonDir}/${langs[i]}${withFilenames ? `_${filename}` : ''}.json`;
+          let valuesToWrite, status;
 
-          fs.writeFile(`${jsonDir}/${langs[i]}${withFilenames ? `_${filename}` : ''}.json`, file, function(err) {
+          if (!fs.existsSync(file)) {
+            valuesToWrite = config.fileTemplate(langs[i], valuesArr);
+            status = 'created';
+          } else {
+            const valuesFromFile = getValuesFromFile(file);
+            const allValues = Object.assign({}, valuesFromFile, valuesArr);
+
+            valuesToWrite = config.fileTemplate(langs[i], allValues);
+            status = 'edit';
+          }
+
+          fs.writeFile(file, valuesToWrite, function(err) {
             if(err) {
-              return console.log(err);
+              return console.log('Error: ' + err);
             }
-            console.log(`${langs[i]}${withFilenames ? `_${filename}` : ''}.json was created in ${jsonDir}`);
+            console.log(`${langs[i]}${withFilenames ? `_${filename}` : ''}.json was ${status} in ${jsonDir}`);
           });
         }
       } else {

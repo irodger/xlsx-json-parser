@@ -8,9 +8,7 @@
 
 ## Description and nuances
 xlsx to JSON parser. Also support i18next format. Relies on node-xlsx.   
-*Attention!* At this version parser rewrite exist files.  
-I hope append to exist files will be in next releases.
-
+### Yep, it can append new files to exist now! *Cheers* 😎
 
 ### Install
 ```javascript
@@ -87,3 +85,6 @@ Return filenames looks like `{lang}_{xlsxFileName}.json`
 
 ### Xlsx format
 To correct parsing you need next format - First row in xlsx file is for languages. Rows are for keys and values.
+
+### Append to exist files
+Yep! It can be append to exist files if your JSON file format in config equal to your exist JSON view.
