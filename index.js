@@ -1,14 +1,13 @@
 const xlsx = require('node-xlsx');
 const fs = require('fs');
 const path = require('path');
+const getValuesFromFile = require('./utils/getValuesFromFile');
+const getValuesFromArray = require('./utils/getValuesFromArray');
 const config = fs.existsSync(path.resolve(__dirname, './../../xlsx-json-parser.config.js')) ? require('../../xlsx-json-parser.config.js') : require('./xlsx-json-parser.config.js');
 let listNumber = config.listNumber;
 let withFilenames = config.withFilenames;
 let xlsxDir = config.xlsxDir;
 let jsonDir = config.jsonDir;
-
-const getValuesFromFile = require('./utils/getValuesFromFile');
-const getValuesFromArray = require('./utils/getValuesFromArray');
 
 /**
  * Get arguments from command line
@@ -52,24 +51,14 @@ fs.readdir(xlsxDir, (err, files) => {
         const langs = currentList.data[0];
         const tt = getValuesFromArray(currentList.data);
 
-        /**
-         * Write files
-         */
         for (let i = 0; i < langs.length; i++) {
-          let valuesArr = tt[`${langs[i]}`];
           const file = `${jsonDir}/${langs[i]}${withFilenames ? `_${filename}` : ''}.json`;
+          let valuesArr = tt[`${langs[i]}`];
           let valuesToWrite, status;
 
-          if (!fs.existsSync(file)) {
-            valuesToWrite = config.fileTemplate(langs[i], valuesArr);
-            status = 'created';
-          } else {
-            const valuesFromFile = getValuesFromFile(file);
-            const allValues = Object.assign({}, valuesFromFile, valuesArr);
-
-            valuesToWrite = config.fileTemplate(langs[i], allValues);
-            status = 'edit';
-          }
+          valuesToWrite = !fs.existsSync(file) ? valuesArr : Object.assign({}, getValuesFromFile(file), valuesArr);
+          status = !fs.existsSync(file) ? 'created' : 'edited';
+          valuesToWrite = config.fileTemplate(langs[i], valuesToWrite);
 
           fs.writeFile(file, valuesToWrite, function(err) {
             if(err) {

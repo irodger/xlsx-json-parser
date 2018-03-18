@@ -1,6 +1,6 @@
 {
   "name": "xlsx-json-parser",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Parse xls/xlsx to json. i18next format",
   "main": "index.js",
   "author": "Roman iRodger Dvoryanov",
