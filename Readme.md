@@ -10,6 +10,12 @@
 xlsx to JSON parser. Also support i18next format. Relies on node-xlsx.   
 ### Yep, it can append new files to exist now! *Cheers* 😎
 
+### What's new
+* v.0.2.2 - Add jest testing
+* v.0.2.1 - Refactoring
+* v.0.2.0 - Add append to exist files
+* v.0.1.0 - First init
+
 ### Install
 ```javascript
 npm i xlsx-json-parser

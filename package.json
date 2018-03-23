@@ -1,13 +1,13 @@
 {
   "name": "xlsx-json-parser",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Parse xls/xlsx to json. i18next format",
   "main": "index.js",
   "author": "Roman iRodger Dvoryanov",
   "license": "MIT",
   "scripts": {
     "parse": "node index",
-    "test": "node index"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,8 @@
     "xlsx parser",
     "xlsx to json",
     "i18next parser"
-  ]
+  ],
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
 }

@@ -49,7 +49,8 @@ fs.readdir(xlsxDir, (err, files) => {
 
       if (typeof currentList !== 'undefined' && currentList.data.length > 0) {
         const langs = currentList.data[0];
-        const tt = getValuesFromArray(currentList.data);
+        const langsCount = langs.length;
+        const tt = getValuesFromArray(currentList.data, langsCount);
 
         for (let i = 0; i < langs.length; i++) {
           const file = `${jsonDir}/${langs[i]}${withFilenames ? `_${filename}` : ''}.json`;

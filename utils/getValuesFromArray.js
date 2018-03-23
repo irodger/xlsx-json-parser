@@ -1,10 +1,11 @@
 /**
  * Get values from array
- * @param array
+ * @param array {array<array>}
+ * @param langsCount {number}
  * @returns {{}}
  */
-function getValuesFromArray (array) {
-  const langsCount = array[0].length;
+
+function getValuesFromArray (array, langsCount) {
   const temp = {};
 
   for (let i = 0; i < langsCount; i++) {

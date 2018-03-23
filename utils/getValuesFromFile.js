@@ -13,7 +13,7 @@ function getValuesFromFile(file) {
   try {
     contents = fs.readFileSync(file, 'utf8');
   } catch(err) {
-    console.log('JSON file was incorrect')
+    console.log('JSON file was incorrect or not defined: ' + err)
     return false;
   }
 

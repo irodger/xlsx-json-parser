@@ -11,6 +11,8 @@ function recursiveSearchValues (obj) {
       } else {
         return obj[key]
       }
+    } else {
+      return false;
     }
   }
 }
