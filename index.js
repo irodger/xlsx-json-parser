@@ -34,7 +34,7 @@ if (!fs.existsSync(xlsxDir)) {
 try {
   fs.mkdirSync(jsonDir);
 } catch(err) {
-  console.log(`Directory ${jsonDir} already exist. And it's okay.`)
+  console.log(`Directory ${jsonDir} already exist. And it's okay.`);
 }
 
 fs.readdir(xlsxDir, (err, files) => {
