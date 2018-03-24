@@ -9,7 +9,7 @@ const config = {
       "${lang}": {
         "translations": ${JSON.stringify(array)}
       }
-    }`
+    }`;
   },
 };
 
