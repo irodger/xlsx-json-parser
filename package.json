@@ -1,6 +1,6 @@
 {
   "name": "xlsx-json-parser",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Parse xls/xlsx to json. i18next format",
   "main": "index.js",
   "author": "Roman iRodger Dvoryanov <raxennt@gmail.com> (http://irodger.ru)",
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/irodger/xlsx-json-parser#readme",
   "dependencies": {
-    "node-xlsx": "^0.11.2"
+    "node-xlsx": "^0.12.0"
   },
   "keywords": [
     "parser",

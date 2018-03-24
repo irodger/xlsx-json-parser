@@ -23,23 +23,25 @@ process.argv.forEach(function (val) {
 /**
  * Close app when folder with xlsx not found
  */
-if (!fs.existsSync(xlsxDir)){
-  console.log(`Folder ${xlsxDir} with xlsx files doesn't exist`);
+if (!fs.existsSync(xlsxDir)) {
+  console.log(`Folder ${xlsxDir} with xlsx files doesn't exist. Checking your config file or directory.`);
   process.exit();
 }
 
 /**
  * Creating json directory if doesn't exist
  */
-if (!fs.existsSync(jsonDir)){
+try {
   fs.mkdirSync(jsonDir);
+} catch(err) {
+  console.log(`Directory ${jsonDir} already exist. And it's okay.`)
 }
 
 fs.readdir(xlsxDir, (err, files) => {
   files.forEach(file => {
     if (file.toString().includes('.xls')) {
       const filename = file.replace(/((.xlsx)|(.xls))/g, '');
-      const excelArray = xlsx.parse(fs.readFileSync(`./${xlsxDir}/${file}`));
+      const excelArray = xlsx.parse(`./${xlsxDir}/${file}`);
 
       const list = (listNumber) => {
         return typeof excelArray[listNumber - 1] !== 'undefined' ? excelArray[listNumber - 1] : console.log('List empty');
@@ -61,15 +63,16 @@ fs.readdir(xlsxDir, (err, files) => {
           status = !fs.existsSync(file) ? 'created' : 'edited';
           valuesToWrite = config.fileTemplate(langs[i], valuesToWrite);
 
-          fs.writeFile(file, valuesToWrite, function(err) {
-            if(err) {
-              return console.log('Error: ' + err);
-            }
+          try {
+            fs.writeFileSync(file, valuesToWrite);
+
             console.log(`${langs[i]}${withFilenames ? `_${filename}` : ''}.json was ${status} in ${jsonDir}`);
-          });
+          } catch(err) {
+            return console.log('Error: ' + err);
+          }
         }
       } else {
-        console.log('File ' + file + ' has no list ' + listNumber + '.\nTry another file or list.')
+        return console.log('File ' + file + ' has no list ' + listNumber + '.\nTry another file or list.');
       }
     }
   });

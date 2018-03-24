@@ -5,12 +5,18 @@
 [![License](https://img.shields.io/github/license/irodger/xlsx-json-parser.svg?style=flat-square)](https://github.com/irodger/xlsx-json-parser/blob/master/LICENSE)
 [![Issues](https://img.shields.io/github/issues/irodger/xlsx-json-parser.svg?style=flat-square)](https://github.com/irodger/xlsx-json-parser/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/irodger/xlsx-json-parser/pulls)
+[![dependencies status](https://img.shields.io/david/irodger/xlsx-json-parser.svg?style=flat)](https://david-dm.org/irodger/xlsx-json-parser)
+[![devDependencies status](https://img.shields.io/david/dev/irodger/xlsx-json-parser.svg?style=flat)](https://david-dm.org/irodger/xlsx-json-parser#info=devDependencies)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3ff1ed296833401497b52b15e4ceb9d9)](https://www.codacy.com/app/irodger/xlsx-json-parser)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/3ff1ed296833401497b52b15e4ceb9d9)](https://www.codacy.com/app/irodger/xlsx-json-parser)
 
 ## Description and nuances
 xlsx to JSON parser. Also support i18next format. Relies on node-xlsx.   
 ### Yep, it can append new files to exist now! *Cheers* 😎
 
 ### What's new
+* v.0.2.4 - Remove async write file & some refactoring
+* v.0.2.3 - Add author's contacts
 * v.0.2.2 - Add jest testing
 * v.0.2.1 - Refactoring
 * v.0.2.0 - Add append to exist files
