@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 const recursiveSearchValues = require('./recursiveSearchValues');
 
 /**
@@ -7,7 +6,6 @@ const recursiveSearchValues = require('./recursiveSearchValues');
  * @param file
  */
 function getValuesFromFile(file) {
-  file = path.resolve(__dirname + '/..', file);
   let contents;
 
   try {

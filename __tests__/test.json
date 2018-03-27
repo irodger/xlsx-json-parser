@@ -1,9 +1,8 @@
-
-    {
-      "en": {
-        "translations": {
-          "three": "three",
-          "two": "two"
-        }
-      }
+{
+  "en": {
+    "translations": {
+      "three": "three",
+      "two": "two"
     }
+  }
+}
