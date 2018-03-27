@@ -14,6 +14,7 @@ xlsx to JSON parser. Also support i18next format. Relies on node-xlsx.
 ### Yep, it can append new files to exist now! *Cheers* 😎
 
 ### What's new
+* v.0.3.1 - Update Readme.md
 * v.0.3.0 - Add config tests. Fix parser. Now it's work as NPM module correctly
 * v.0.2.5 - Codystyle fixes
 * v.0.2.4 - Remove async write file & some refactoring
@@ -58,12 +59,16 @@ You can change default arguments in `xlsx-json-parser.config.js`
 Config file `xlsx-json-parser.config.js` looks like
 ```javascript
 const config = {
-  xlsxDir: 'xlsx/',
-  jsonDir: 'json/',
+  xlsxDir: 'xlsx',
+  jsonDir: 'json',
   listNumber: 1,
   withFilenames: false,
   fileTemplate(lang, array) {
-    return `{\n "${lang}": {\n    "translations": ${JSON.stringify(array)}\n  }\n}`
+    return `{
+  "${lang}": {
+    "translations": ${JSON.stringify(array)}
+  }
+}`;
   },
 };
 
@@ -101,3 +106,16 @@ To correct parsing you need next format - First row in xlsx file is for language
 
 ### Append to exist files
 Yep! It can be append to exist files if your JSON file format in config equal to your exist JSON view.
+
+### Known issues
+If you change template to first level view
+```javascript
+fileTemplate(lang, array) {
+  return `${JSON.stringify(array)}`;
+}
+```
+Your first parsing will be ok, but second time you recieve first value split view
+```javascript
+{"0":"H","1":"e","2":"l","3":"l","4":"o"}
+```
+I working on it. For correct parser working your values need to be a sublevel
