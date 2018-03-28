@@ -55,8 +55,8 @@ describe('getValuesFromArray', () => {
     expect(recursiveSearchValues(mockSecondObj)).toEqual(mockSecondObj);
   });
 
-  it('recursiveSearchValues with empty object return undefined' , () => {
-    expect(recursiveSearchValues(emptyObj)).toEqual(undefined);
+  it('recursiveSearchValues with empty object return false' , () => {
+    expect(recursiveSearchValues(emptyObj)).toEqual(false);
   });
 
   it('is getConfig still object', () => {

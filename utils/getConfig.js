@@ -14,7 +14,7 @@ const config = {
   xlsxDir: path + (configFile.xlsxDir || selfConfig.xlsxDir) + '/',
   jsonDir: path + (configFile.jsonDir || selfConfig.jsonDir) + '/',
   fileTemplate(lang, template) {
-    return configFile.fileTemplate ? configFile.fileTemplate(lang, template) : selfConfig.fileTemplate(lang, template)
+    return configFile.fileTemplate ? configFile.fileTemplate(lang, template) : selfConfig.fileTemplate(lang, template);
   }
 };
 

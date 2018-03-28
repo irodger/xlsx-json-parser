@@ -14,7 +14,8 @@ xlsx to JSON parser. Also support i18next format. Relies on node-xlsx.
 ### Yep, it can append new files to exist now! *Cheers* 😎
 
 ### What's new
-* v,0.3.3 - Update Readme.md
+* v.0.3.4 - Improve recursiveSearchValues & update tests
+* v.0.3.3 - Update Readme.md
 * v.0.3.2 - Fix known issues with one level template
 * v.0.3.1 - Update Readme.md
 * v.0.3.0 - Add config tests. Fix parser. Now it's work as NPM module correctly
