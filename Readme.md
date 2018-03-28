@@ -119,4 +119,5 @@ Your first parsing will be ok, <strike>but second time you recieve first value s
 ```javascript
 {"0":"H","1":"e","2":"l","3":"l","4":"o"}
 ```
-I working on it. For correct parser working your values need to be a sublevel
+<strike>I working on it. For correct parser working your values need to be a sublevel</strike>
+✔ Got it!
