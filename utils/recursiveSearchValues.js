@@ -6,10 +6,14 @@
 function recursiveSearchValues (obj) {
   for(let key in obj) {
     if (obj.hasOwnProperty(key)) {
-      if (Object.keys(obj[key]).length === 1) {
-        return recursiveSearchValues(obj[key]);
+      if (typeof obj[key] === 'object') {
+        if (Object.keys(obj[key]).length === 1) {
+          return recursiveSearchValues(obj[key]);
+        } else {
+          return obj[key];
+        }
       } else {
-        return obj[key];
+        return obj
       }
     } else {
       return false;

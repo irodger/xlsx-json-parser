@@ -52,7 +52,7 @@ describe('getValuesFromArray', () => {
   });
 
   it('recursiveSearchValues return deepest children value' , () => {
-    expect(recursiveSearchValues(mockSecondObj)).toEqual("three");
+    expect(recursiveSearchValues(mockSecondObj)).toEqual(mockSecondObj);
   });
 
   it('recursiveSearchValues with empty object return undefined' , () => {

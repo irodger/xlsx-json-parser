@@ -14,6 +14,7 @@ xlsx to JSON parser. Also support i18next format. Relies on node-xlsx.
 ### Yep, it can append new files to exist now! *Cheers* 😎
 
 ### What's new
+* v.0.3.2 - Fix known issues with one level template
 * v.0.3.1 - Update Readme.md
 * v.0.3.0 - Add config tests. Fix parser. Now it's work as NPM module correctly
 * v.0.2.5 - Codystyle fixes
@@ -108,13 +109,13 @@ To correct parsing you need next format - First row in xlsx file is for language
 Yep! It can be append to exist files if your JSON file format in config equal to your exist JSON view.
 
 ### Known issues
-If you change template to first level view
+✔ If you change template to first level view
 ```javascript
 fileTemplate(lang, array) {
   return `${JSON.stringify(array)}`;
 }
 ```
-Your first parsing will be ok, but second time you recieve first value split view
+Your first parsing will be ok, <strike>but second time you recieve first value split view</strike>
 ```javascript
 {"0":"H","1":"e","2":"l","3":"l","4":"o"}
 ```
